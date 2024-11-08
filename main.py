@@ -4,17 +4,23 @@ import os
 from utils import log
 
 file_data = {
-    "data\config.ini": '[DEFAULT]\nauthor=\nupgroup=\ndebug=False\nstartmsg=Start\n\n[WS]\nurl=127.0.0.1\nport=1145',
+    "data\config.ini": '[DEFAULT]\n'
+                       'author=\n'
+                       'upgroup=\n'
+                       'debug=False\n'
+                       'startmsg=Start\n\n'
+                       '[WS]\n'
+                       'url=127.0.0.1\nport=1145',
 }
 dirs = ("data\groups",
         "logs",
-        "modules")
+        "plugins")
 
 
 def main():
     initialize()
     import bot
-    bot.run()
+    bot.run_websocket()
 
 def initialize():
     print("Initializing...")

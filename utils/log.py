@@ -46,7 +46,7 @@ def get_logger():
 
         # 文件处理器
         file_handler = logging.FileHandler(filename=filename, mode='a', encoding='utf8')
-        file_handler.setLevel(logger.level)
+        file_handler.setLevel(logging.INFO)
         file_formatter = logging.Formatter(
             fmt='[%(asctime)s.%(msecs)03d] %(filename)s -> %(funcName)s line:%(lineno)d [%(levelname)s] : %(message)s',
             datefmt='%y-%m-%d %H:%M:%S'
