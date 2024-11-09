@@ -24,7 +24,7 @@ def send_private_message(qq, message):
         logger.info(f"Send Private Message To {qq}:{message}(message_id:{response_json['data']['message_id']})")
     elif response_json['status'] == 'error':
         logger.error(f"Send Private Message To {qq} Failed:{message}({response.text})")
-
+    return response_json['data']['message_id']
 def send_group_message(group,message):
     payload = {
             "group_id": group,
@@ -38,3 +38,4 @@ def send_group_message(group,message):
         logger.info(f"Send Group Message To {group}:{message}(message_id:{response_json['data']['message_id']})")
     elif response_json['status'] == 'error':
         logger.error(f"Send Group Message To {group} Failed:{message}({response.text})")
+    return response_json['data']['message_id']
