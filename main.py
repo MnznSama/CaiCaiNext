@@ -13,6 +13,7 @@ file_data = {
                        'url=127.0.0.1\nport=1145',
 }
 dirs = ("data\groups",
+        "data\plugins",
         "logs",
         "plugins")
 
