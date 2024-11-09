@@ -39,3 +39,16 @@ def send_group_message(group,message):
     elif response_json['status'] == 'error':
         logger.error(f"Send Group Message To {group} Failed:{message}({response.text})")
     return response_json['data']['message_id']
+def delete_message(message_id):
+    payload = {
+            "message_id": message_id,
+            "echo": "DeleteMessage-{}".format(message_id)
+        }
+    response = requests.post(url + "delete_msg", headers=headers, json=payload)
+    response_json = response.json()
+    logger.debug(response.text)
+    if  response_json['status'] == 'ok':
+        logger.info(f"Delete Message {message_id} Success.")
+    elif response_json['status'] == 'error':
+        logger.warning(f"Delete Message {message_id} Failed.")
+    return response_json['data']['message_id']
