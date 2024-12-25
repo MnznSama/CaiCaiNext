@@ -141,8 +141,6 @@ def ai(raw_message, group_id, user_id, name, message_id, to_delete_id):
     logger.debug(f"AI RESPONSE | {result.answer} | conversation_id: {result.conversation_id} | message_id: {result.message_id} | tokens: {token} | price: {price}")
     if (json_answer := json.loads(result.answer)).get('mode') == 'chat':
         text = base64.b64decode(json_answer.get('text')).decode('utf-8')
-        if 'f47ac10b' in text:
-            text = "[Filtered]"
         text = f"[CQ:reply,id={message_id}]{text}\n*对话模型:{model}\n*对话消耗: {token} tokens"
         send_group_message(group_id, text)
         delete_message(to_delete_id)
