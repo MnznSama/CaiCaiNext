@@ -1,2 +1,2 @@
 echo off
-start powershell conda activate MnznBot;python main.py;pause
+python main.py;pause
